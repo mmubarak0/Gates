@@ -32,6 +32,12 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IEndDragHandler, 
     {
         // Debug.Log("EndDrag");
         canvasGroup.blocksRaycasts = true;
+        if (Slots.dropped != true){
+            resetPosition();
+            Slots.dropped = false;
+        } else {
+            Slots.dropped = false;
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)

@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
     private int level = StaticVariables.level;
     private int numOfGates = 3;
     private int xstep = 0;
-    private int xinit = -850;
-    private int xfinal = 850;
-    public int NumOfNotGate = 1;
+    private int xinit = -600;
+    private int xfinal = 600;
+    public int NumOfNotGate = 2;
     public int NumOfOrGate = 1;
     public int NumOfAndGate = 1;
     private void Start()
@@ -33,16 +33,16 @@ public class GameManager : MonoBehaviour
                 numOfGates = NumOfNotGate + NumOfOrGate + NumOfAndGate;
                 break;
             case 3:
-                NumOfNotGate = 1;
-                NumOfOrGate = 0;
-                NumOfAndGate = 4;
+                NumOfNotGate = 2;
+                NumOfOrGate = 1;
+                NumOfAndGate = 1;
                 numOfGates = NumOfNotGate + NumOfOrGate + NumOfAndGate;
                 break;
         }
 
         xstep = Mathf.Abs(xinit - xfinal)/(numOfGates-1);
 
-        Vector3 pos = new Vector3(xinit, -450, 0);
+        Vector3 pos = new Vector3(xinit, -280, 0);
         for (int i=0; i<numOfGates; i++){
             if (i >= 0 && i < NumOfNotGate){
                 GameObject Nod = Instantiate(nodeNot, pos, Quaternion.identity);
